@@ -17,7 +17,9 @@ namespace MedicineManagement.MedicineManagement
                 Console.WriteLine("\n=== 医薬品管理システム ===");
                 Console.WriteLine("1. 医薬品を登録する");
                 Console.WriteLine("2. 医薬品一覧を表示する");
-                Console.WriteLine("3. 終了する");
+                Console.WriteLine("3. 医薬品を更新する");
+                Console.WriteLine("4. 医薬品を削除する");
+                Console.WriteLine("5. 終了する");
                 Console.Write("選択してください: ");
 
                 string choice = Console.ReadLine();
@@ -30,7 +32,15 @@ namespace MedicineManagement.MedicineManagement
                     case "2":
                         ShowList();
                         break;
+
                     case "3":
+                        Update();
+                        break;
+                    case "4":
+                        Delete();
+                        break;
+
+                    case "5":
                         Console.Write("本当に終了しますか？（y/n）: ");
                         string confirm = Console.ReadLine()?.Trim().ToLower();
 
@@ -88,7 +98,43 @@ namespace MedicineManagement.MedicineManagement
                 Console.WriteLine(m);
             }
         }
+
+
+        static void Update()
+        {
+            Console.Write("更新する薬の名前を入力してください: ");
+            string name = Console.ReadLine();
+
+            Console.Write("新しい数量を入力してください: ");
+            if (!int.TryParse(Console.ReadLine(), out int newQuantity))
+            {
+                Console.WriteLine("数量は整数で入力してください。");
+                return;
+            }
+            Console.Write("新しい有効期限を入力してください (yyyy-MM-dd): ");
+            if (!DateTime.TryParse(Console.ReadLine(), out DateTime newExpiryDate))
+            {
+                Console.WriteLine("有効な日付形式で入力してください。");
+                return;
+            }
+
+
+            bool updated = service.UpdateMedicine(name, newQuantity, newExpiryDate);
+            Console.WriteLine(updated ? "更新成功" : "更新失敗：薬が見つかりません。");
+        }
+
+
+        static void Delete()
+        {
+            Console.Write("削除する薬の名前を入力してください: ");
+            string name = Console.ReadLine();
+
+            bool deleted = service.DeleteMedicine(name);
+            Console.WriteLine(deleted ? "削除成功" : "削除失敗：薬が見つかりません。");
+        }
     }
 
 }
+
+
 

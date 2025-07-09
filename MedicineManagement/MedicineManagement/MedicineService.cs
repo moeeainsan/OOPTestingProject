@@ -33,6 +33,30 @@ namespace MedicineManagement.MedicineManagement
         {
             return medicines.Count > 0;
         }
+
+
+        public bool UpdateMedicine(string name, int newQuantity, DateTime newExpiry)
+        {
+            var medicine = medicines.FirstOrDefault(m => m.Name == name);
+            if (medicine != null)
+            {
+                medicine.Quantity = newQuantity;
+                medicine.ExpiryDate = newExpiry;
+                return true;
+            }
+            return false;
+        }
+
+        public bool DeleteMedicine(string name)
+        {
+            var medicine = medicines.FirstOrDefault(m => m.Name == name);
+            if (medicine != null)
+            {
+                medicines.Remove(medicine);
+                return true;
+            }
+            return false;
+        }
     }
 }
 
