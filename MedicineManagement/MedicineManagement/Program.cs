@@ -102,39 +102,72 @@ namespace MedicineManagement.MedicineManagement
 
         static void Update()
         {
+            //    Console.Write("更新する薬の名前を入力してください: ");
+            //    string name = Console.ReadLine();
+
+            //    Console.Write("新しい数量を入力してください: ");
+            //    if (!int.TryParse(Console.ReadLine(), out int newQuantity))
+            //    {
+            //        Console.WriteLine("数量は整数で入力してください。");
+            //        return;
+            //    }
+            //    Console.Write("新しい有効期限を入力してください (yyyy-MM-dd): ");
+            //    if (!DateTime.TryParse(Console.ReadLine(), out DateTime newExpiryDate))
+            //    {
+            //        Console.WriteLine("有効な日付形式で入力してください。");
+            //        return;
+            //    }
+
+
+            //    bool updated = service.UpdateMedicine(name, newQuantity, newExpiryDate);
+            //    Console.WriteLine(updated ? "更新成功" : "更新失敗：薬が見つかりません。");
+            //}
+
             Console.Write("更新する薬の名前を入力してください: ");
             string name = Console.ReadLine();
 
-            Console.Write("新しい数量を入力してください: ");
-            if (!int.TryParse(Console.ReadLine(), out int newQuantity))
+            Console.Write("増減数量を入力してください (+/-数値): ");
+            if (!int.TryParse(Console.ReadLine(), out int delta))
             {
                 Console.WriteLine("数量は整数で入力してください。");
                 return;
             }
-            Console.Write("新しい有効期限を入力してください (yyyy-MM-dd): ");
-            if (!DateTime.TryParse(Console.ReadLine(), out DateTime newExpiryDate))
+
+            Console.Write("新しい有効期限を入力してください (yyyy-MM-dd) [変更しない場合はEnter]: ");
+            string expiryInput = Console.ReadLine();
+            DateTime? newExpiry = null;
+            if (!string.IsNullOrWhiteSpace(expiryInput))
             {
-                Console.WriteLine("有効な日付形式で入力してください。");
-                return;
+                if (DateTime.TryParse(expiryInput, out DateTime dt))
+                    newExpiry = dt;
+                else
+                {
+                    Console.WriteLine("有効な日付形式で入力してください。");
+                    return;
+                }
             }
 
-
-            bool updated = service.UpdateMedicine(name, newQuantity, newExpiryDate);
-            Console.WriteLine(updated ? "更新成功" : "更新失敗：薬が見つかりません。");
+            // サービスに更新を依頼
+            bool success = service.UpdateMedicine(name, delta, newExpiry);
+            if (success)
+                Console.WriteLine("=== 更新成功 ===");
+            else
+                Console.WriteLine("=== 更新失敗：名前不正または在庫不足 ===");
         }
-
+    
 
         static void Delete()
-        {
-            Console.Write("削除する薬の名前を入力してください: ");
-            string name = Console.ReadLine();
+            {
+                Console.Write("削除する薬の名前を入力してください: ");
+                string name = Console.ReadLine();
 
-            bool deleted = service.DeleteMedicine(name);
-            Console.WriteLine(deleted ? "削除成功" : "削除失敗：薬が見つかりません。");
+                bool deleted = service.DeleteMedicine(name);
+                Console.WriteLine(deleted ? "削除成功" : "削除失敗：薬が見つかりません。");
+            }
         }
+
     }
 
-}
 
 
 
