@@ -1,0 +1,15 @@
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\bin\Debug\net8.0\MedicineManagementProject.exe
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\bin\Debug\net8.0\MedicineManagementProject.deps.json
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\bin\Debug\net8.0\MedicineManagementProject.runtimeconfig.json
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\bin\Debug\net8.0\MedicineManagementProject.dll
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\bin\Debug\net8.0\MedicineManagementProject.pdb
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\obj\Debug\net8.0\MedicineManagementProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\obj\Debug\net8.0\MedicineManagementProject.AssemblyInfoInputs.cache
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\obj\Debug\net8.0\MedicineManagementProject.AssemblyInfo.cs
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\obj\Debug\net8.0\MedicineManagementProject.csproj.CoreCompileInputs.cache
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\obj\Debug\net8.0\MedicineManagementProject.sourcelink.json
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\obj\Debug\net8.0\MedicineManagementProject.dll
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\obj\Debug\net8.0\refint\MedicineManagementProject.dll
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\obj\Debug\net8.0\MedicineManagementProject.pdb
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\obj\Debug\net8.0\MedicineManagementProject.genruntimeconfig.cache
+C:\C#Studying\OOPTestingProject\MedicineManagementProject\obj\Debug\net8.0\ref\MedicineManagementProject.dll
